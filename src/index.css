@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* TheCFO.Site Brand Colors — HSL */
+    --navy: 218 35% 12%;            /* #121A28 */
+    --amber: 33 63% 45%;            /* #B9832B */
+    --amber-dark: 39 100% 30%;      /* #996500 */
+    --canvas: 36 33% 95%;           /* #F7F4EF */
+    --card-warm: 36 50% 99%;        /* #FEFDFB */
+    --secondary-warm: 36 21% 91%;   /* #EEEAE3 */
+    --body-text: 22 14% 33%;        /* #5D524A */
+    --border-warm: 36 17% 85%;      /* #E1DDD6 */
+
+    /* Shadcn semantic mapping */
+    --background: var(--canvas);
+    --foreground: var(--navy);
+    --card: var(--card-warm);
+    --card-foreground: var(--navy);
+    --popover: var(--card-warm);
+    --popover-foreground: var(--navy);
+    --primary: var(--navy);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--secondary-warm);
+    --secondary-foreground: var(--navy);
+    --muted: var(--secondary-warm);
+    --muted-foreground: var(--body-text);
+    --accent: var(--amber);
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: var(--border-warm);
+    --input: var(--border-warm);
+    --ring: var(--amber);
+    --radius: 0.5rem;
+
+    /* Chat widget bubble */
+    --chat-blue: 214 84% 46%;
+    --chat-blue-dark: 214 84% 38%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-[hsl(var(--body-text))] font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-[hsl(var(--navy))] font-display;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .section-pad {
+    @apply py-12 md:py-14 lg:py-16;
+  }
+  .overline {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-[hsl(var(--amber))];
+  }
+  .h1 {
+    @apply text-[32px] sm:text-[40px] lg:text-[48px] font-extrabold leading-[1.05] tracking-tight;
+  }
+  .h2 {
+    @apply text-[28px] sm:text-[32px] lg:text-[36px] font-extrabold leading-[1.1] tracking-tight;
+  }
+  .h3 {
+    @apply text-lg font-bold;
+  }
+  .accent-word {
+    @apply text-[hsl(var(--amber))];
+  }
+  .lead {
+    @apply text-base md:text-lg leading-relaxed text-[hsl(var(--body-text))];
+  }
+  .card-warm {
+    @apply bg-[hsl(var(--card-warm))] border border-[hsl(var(--border-warm))] rounded-xl;
+  }
+  .card-hover {
+    @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:border-[hsl(var(--amber)/0.3)];
+    box-shadow: 0 0 0 0 hsl(var(--amber) / 0);
+  }
+  .icon-tile {
+    @apply w-11 h-11 rounded-lg flex items-center justify-center bg-[hsl(var(--amber)/0.08)] text-[hsl(var(--amber))];
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-[hsl(var(--navy))] text-white text-sm font-semibold transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg border border-[hsl(var(--navy)/0.2)] text-[hsl(var(--navy))] text-sm font-semibold transition-all duration-200 hover:border-[hsl(var(--navy))] hover:-translate-y-0.5;
+  }
+  .btn-on-dark {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-white text-[hsl(var(--navy))] text-sm font-semibold transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5;
+  }
+  .btn-ghost-dark {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-transparent border border-white/30 text-white text-sm font-semibold transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5;
+  }
+  .amber-link {
+    @apply inline-flex items-center gap-1 text-sm font-semibold text-[hsl(var(--amber))] hover:text-[hsl(var(--amber-dark))] transition-colors;
+  }
+}
